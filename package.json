@@ -13,6 +13,8 @@
     "serverless-plugin-chrome": "^1.0.0-31"
   },
   "devDependencies": {
+    "dotenv": "^8.0.0",
     "serverless-attach-managed-policy": "0.0.6"
-  }
+  },
+  "private": true
 }
