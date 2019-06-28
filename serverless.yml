@@ -4,15 +4,11 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: eu-west-1
-  # iamRoleStatements:
-  #   - Effect: Allow
-  #     Action:
-  #       - s3:*
-  #     Resource: "arn:aws:s3:::lighthouse-audits/*"
 
 plugins:
   - serverless-plugin-chrome
   - serverless-attach-managed-policy
+  - serverless-offline
 
 custom:
   chrome:
@@ -32,16 +28,7 @@ functions:
   auditor:
     handler: handler.audit
     timeout: 180
-    # events:
-    #   - schedule:
-    #       rate: rate(1 minute)
-    #       enabled: false
-    #       input:
-    #         target: https://www.example.com/
-    #         mobile: false
-# resources:
-#   Resources:
-#     AuditBucket:
-#       Type: AWS::S3::Bucket
-#       Properties:
-#         BucketName: lighthouse-audits
+    events:
+      - http:
+        path: audit/{url}
+        method: get
