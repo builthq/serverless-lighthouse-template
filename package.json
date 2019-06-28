@@ -9,7 +9,11 @@
   "author": "Jacob Aaron Wrolson",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "lighthouse": "^2.7.0",
+    "serverless-http": "^2.0.2",
+    "serverless-offline": "^5.5.0",
     "serverless-plugin-chrome": "^1.0.0-31"
   },
   "devDependencies": {
